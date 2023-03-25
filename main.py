@@ -11,18 +11,15 @@ asked = ''
 
 
 def WinProperties(win):
-    win.geometry("600x380+540+240")  # размер и позиция окна от верхнего левого угла
-    win.title("I know every thing")  # название окна
-    win.attributes("-alpha", 1)  # прозрачность окна
-    # win["bg"] = "light gray"задний фон окна
-    win.resizable(False, False)  # возможность деформировать окно
-    win.iconbitmap('1.ico')  # иконка окна
+    win.geometry("600x300+540+240")
+    win.title("I know every thing") 
+    win.resizable(False, False) 
+    win.iconbitmap('1.ico')
 
 
 
 
 def Answer():
-    sleep(2)
     global num
     global answer
     global asked
@@ -43,9 +40,11 @@ def Answer():
 
     if(len(event)>0):
         num = randint(1, 2)
-        if (num == 1):
+        if (num == 1 and event[len(event) - 1] == '?' and asked != event):
+            sleep(2)
             answer = 'NO'
-        if (num == 2):
+        if (num == 2 and event[len(event) - 1] == '?' and asked != event):
+            sleep(2)
             answer = 'YES'
         if (event[len(event) - 1] != '?'):
             answer = 'Where is question?'
