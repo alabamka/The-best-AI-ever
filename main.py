@@ -62,6 +62,38 @@ def Answer():
     circle1.after(1000, circle1.destroy)
     circle2.after(2000, circle2.destroy)
     circle3.after(3000, circle3.destroy)
+    '''
+    or try this
+    
+    
+    def get_html():
+    url = "https://ru.wikipedia.org/wiki/asled"
+    get_page = requests.get(url).text
+    return get_page
+
+
+def get_subcategories():
+    page = get_html()
+    soup = BeautifulSoup(page, 'lxml')
+    subcategories = []
+    letters = soup.find('div', class_='toccolours plainlinks center').find('span').find_all('a')
+    for letter in letters:
+        subcategories.append(letter.get('href'))
+    return subcategories
+
+
+def get_data():
+    answer = []
+    subcategories = get_subcategories()
+    for category in subcategories:
+        url = requests.get(category).text
+        soup = BeautifulSoup(url, 'lxml')
+        names = soup.find(
+            'div', class_='mw-content-ltr').find('div', class_='mw-category-group').find_all('a')
+        for i in names:
+            answer.append(i.text)
+    return answer
+    '''
 
 
 win = ct.CTk()
