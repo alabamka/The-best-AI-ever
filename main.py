@@ -5,6 +5,7 @@ from time import sleep
 from PIL import ImageTk, Image
 
 
+
 num = 0
 asked = ''
 
@@ -14,6 +15,8 @@ def WinProperties(win):
     win.title("I know every thing") 
     win.resizable(False, False) 
     win.iconbitmap('1.ico')
+
+
 
 
 def Answer():
@@ -38,69 +41,9 @@ def Answer():
     if(len(event)>0):
         num = randint(1, 2)
         if (num == 1 and event[len(event) - 1] == '?' and asked != event):
-            or try this
-    
-    
-    def get_html():
-    url = "https://ru.wikipedia.org/wiki/asled"
-    get_page = requests.get(url).text
-    return get_page
-
-
-def get_subcategories():
-    page = get_html()
-    soup = BeautifulSoup(page, 'lxml')
-    subcategories = []
-    letters = soup.find('div', class_='toccolours plainlinks center').find('span').find_all('a')
-    for letter in letters:
-        subcategories.append(letter.get('href'))
-    return subcategories
-
-
-def get_data():
-    answer = []
-    subcategories = get_subcategories()
-    for category in subcategories:
-        url = requests.get(category).text
-        soup = BeautifulSoup(url, 'lxml')
-        names = soup.find(
-            'div', class_='mw-content-ltr').find('div', class_='mw-category-group').find_all('a')
-        for i in names:
-            answer.append(i.text)
-    return answer
             sleep(2)
             answer = 'NO'
         if (num == 2 and event[len(event) - 1] == '?' and asked != event):
-            or try this
-    
-    
-    def get_html():
-    url = "https://ru.wikipedia.org/wiki/asled"
-    get_page = requests.get(url).text
-    return get_page
-
-
-def get_subcategories():
-    page = get_html()
-    soup = BeautifulSoup(page, 'lxml')
-    subcategories = []
-    letters = soup.find('div', class_='toccolours plainlinks center').find('span').find_all('a')
-    for letter in letters:
-        subcategories.append(letter.get('href'))
-    return subcategories
-
-
-def get_data():
-    answer = []
-    subcategories = get_subcategories()
-    for category in subcategories:
-        url = requests.get(category).text
-        soup = BeautifulSoup(url, 'lxml')
-        names = soup.find(
-            'div', class_='mw-content-ltr').find('div', class_='mw-category-group').find_all('a')
-        for i in names:
-            answer.append(i.text)
-    return answer
             sleep(2)
             answer = 'YES'
         if (event[len(event) - 1] != '?'):
