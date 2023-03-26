@@ -119,9 +119,6 @@ def get_data():
     circle1.after(1000, circle1.destroy)
     circle2.after(2000, circle2.destroy)
     circle3.after(3000, circle3.destroy)
-    '''
-    
-    '''
 
 
 win = ct.CTk()
